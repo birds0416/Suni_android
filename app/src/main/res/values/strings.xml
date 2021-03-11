@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Suni</string>
+    <string name="title_schedule">My Schedule</string>
+    <string name="title_calendar">Academic Calendar</string>
+    <string name="title_phonebooth">Phone Booth</string>
+    <string name="title_add_course">Add Course</string>
+    <string name="title_screen_capture">Screen Capture</string>
+    <string name="title_activity_schedule">scheduleActivity</string>
+    <string-array name="my_header_title">
+        <item></item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
