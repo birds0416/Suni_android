@@ -1,20 +1,9 @@
 package com.example.suni3.ui.phonebooth
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.suni3.PhoneBooth
-import com.example.suni3.PhoneBoothAdapter
 import com.example.suni3.R
-import kotlinx.android.synthetic.main.fragment_phonebooth.*
-import kotlinx.android.synthetic.main.phonebooth_list.*
-import org.json.JSONObject
 
 class PhoneBoothFragment : Fragment(){
 
@@ -30,12 +19,12 @@ class PhoneBoothFragment : Fragment(){
 //    val jObject = JSONObject(jsonString)
 //    val jArray = jObject.getJSONArray("phone_number")
 
-    private val phoneboothList: ArrayList<PhoneBooth> = ArrayList()
+//    private val phoneboothList: ArrayList<PhoneBooth> = ArrayList()
 //    lateinit var recyclerView: RecyclerView
 
 //    private lateinit var phoneboothList: MutableList<PhoneBooth>
-    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
-    private lateinit var phoneboothAdapter: PhoneBoothAdapter
+//    private val linearLayoutManager by lazy { LinearLayoutManager(context) }
+//    private lateinit var phoneboothAdapter: PhoneBoothAdapter
 
     companion object {
         fun newInstance() : PhoneBoothFragment {
@@ -45,21 +34,6 @@ class PhoneBoothFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_phonebooth, container, false)
-
-//        rv_phonebooth.layoutManager = linearLayoutManager
-//        phoneboothList = ArrayList()
-//        for (i in 0 until 5) {
-        phoneboothList.add(PhoneBooth("IGC Housing Office", "032-626-4856", "housing@igc.or.kr"))
-        phoneboothList.add(PhoneBooth("IGC Central Library", "032-626-0251", "libmaster@igc.or.kr"))
-        phoneboothList.add(PhoneBooth("IGC IT Center", "032-626-0200", "itcenter@igc.or.kr"))
-        phoneboothList.add(PhoneBooth("IGC Health Center", "032-626-0553", "chayj@igc.or.kr"))
-        phoneboothList.add(PhoneBooth("IGC Cafeteria", "032-626-0600", ""))
-//        }
-//
-        phoneboothAdapter = PhoneBoothAdapter(phoneboothList)
-//        rv_phonebooth.adapter = phoneboothAdapter
-//
-//        clickListener()
 
         return view
     }
@@ -83,17 +57,17 @@ class PhoneBoothFragment : Fragment(){
 //        clickListener()
 //    }
 
-    private fun clickListener() {
-        email.setOnClickListener{
-            copyText("Hello World")
-        }
-    }
-
-    private fun copyText (text : String) {
-        val myClipBoard = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val myClip : ClipData = ClipData.newPlainText("Label", text)
-        myClipBoard.setPrimaryClip(myClip)
-    }
+//    private fun clickListener() {
+//        email.setOnClickListener{
+//            copyText("Hello World")
+//        }
+//    }
+//
+//    private fun copyText (text : String) {
+//        val myClipBoard = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+//        val myClip : ClipData = ClipData.newPlainText("Label", text)
+//        myClipBoard.setPrimaryClip(myClip)
+//    }
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
