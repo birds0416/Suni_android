@@ -6,6 +6,7 @@ plugins {
 
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -55,9 +56,10 @@ dependencies {
     implementation 'com.github.tlaabs:TimetableView:1.0.3-fx1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.android.support:appcompat-v7:28.3.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'org.jetbrains.anko:anko:0.10.4'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
-//    implementation project(path: ':MyTimeTableView')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
