@@ -1,22 +1,15 @@
 package com.example.suni3.ui.schedule
 
-import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.*
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.suni3.AddCourseActivity
 import com.example.suni3.R
-import com.github.tlaabs.timetableview.TimetableView
 import kotlinx.android.synthetic.main.fragment_schedule.*
 import java.io.File
 import java.io.FileNotFoundException

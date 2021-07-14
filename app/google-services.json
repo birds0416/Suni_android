@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "327417009234",
+    "firebase_url": "https://suni-f0e4b-default-rtdb.firebaseio.com",
+    "project_id": "suni-f0e4b",
+    "storage_bucket": "suni-f0e4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327417009234:android:70f25cfc26302b9d5ffb8b",
+        "android_client_info": {
+          "package_name": "com.example.suni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327417009234-pe8rpql0ptis6l8tcf7gprafipa9cs01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzdnUa4XQA3kJGQyHfUx75MUm9UWGRHbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327417009234-pe8rpql0ptis6l8tcf7gprafipa9cs01.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "327417009234-0kt42d8u8hq41jnuojrerf0q4rqqdcn0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "YiHyun.Suni"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

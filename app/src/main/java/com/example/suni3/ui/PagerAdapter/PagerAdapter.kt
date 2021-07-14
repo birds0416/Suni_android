@@ -1,11 +1,6 @@
 package com.example.suni3.ui.PagerAdapter
 
-import android.content.Context
 import androidx.fragment.app.*
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.suni3.CourseFragment
-import com.example.suni3.ManualFragment
-import java.util.concurrent.CountDownLatch
 
 //private val TAB_TITLES = arrayOf("Course", "Manual")
 

@@ -1,10 +1,11 @@
-package com.example.suni3
+package com.example.suni3.ui.schedule
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.suni3.R
 
 class ManualFragment: Fragment() {
 

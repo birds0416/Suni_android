@@ -12,17 +12,28 @@
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:selectedDayBackgroundColor="#7D4FDE"
+        app:selectedDayBackgroundColor="#8977AD"
+        app:currentDayIconRes="@drawable/ic_select"
+        app:currentDaySelectedIconRes="@drawable/ic_select"
         app:connectedDayIconPosition="top"
         app:dayTextColor="@color/purple_500"
         app:monthTextColor="@color/purple_200"
         app:weekDayTitleTextColor="@color/purple_500"
-        app:currentDayTextColor="#f79256"
         app:firstDayOfTheWeek="sunday"
         app:orientation="horizontal"
         app:weekendDayTextColor="#ef4550"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calendar_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/calendar_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/calendar_events"/>
 
 
 <!--    <com.prolificinteractive.materialcalendarview.MaterialCalendarView-->

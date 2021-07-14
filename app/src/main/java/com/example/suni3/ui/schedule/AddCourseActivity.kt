@@ -1,18 +1,11 @@
-package com.example.suni3
+package com.example.suni3.ui.schedule
 
-import android.content.Context
-import android.graphics.pdf.PdfDocument
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
-import android.widget.Button
-import android.widget.TextView
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
+import com.example.suni3.R
 import com.example.suni3.ui.PagerAdapter.PagerAdapter
 import kotlinx.android.synthetic.main.activity_add_course.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class AddCourseActivity : AppCompatActivity() {
 
@@ -45,7 +38,7 @@ class AddCourseActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
     }
 }

@@ -1,4 +1,2 @@
-include ':timetableview'
-include ':cosmocalendar'
 include ':app'
 rootProject.name = "Suni3"

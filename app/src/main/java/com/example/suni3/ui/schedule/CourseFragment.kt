@@ -1,18 +1,25 @@
-package com.example.suni3
+package com.example.suni3.ui.schedule
 
+import android.content.res.AssetManager
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.FragmentActivity
-import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.suni3.R
+import com.example.suni3.ui.phonebooth.PhoneAdapter
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.IOException
 
 class CourseFragment : Fragment() {
+
+    private var dataList : ArrayList<CoursesData> = ArrayList()
 
     public fun newInstance(): CourseFragment {
         val args = Bundle()
@@ -42,6 +49,9 @@ class CourseFragment : Fragment() {
 
         button_mon?.setOnClickListener {
             button_mon?.isSelected = button_mon?.isSelected != true
+            if (button_mon?.isSelected) {
+
+            }
         }
         button_tue?.setOnClickListener {
             button_tue?.isSelected = button_tue?.isSelected != true
@@ -70,6 +80,55 @@ class CourseFragment : Fragment() {
         button_mec?.setOnClickListener {
             button_mec?.isSelected = button_mec?.isSelected != true
         }
+        button_etc?.setOnClickListener {
+            button_etc?.isSelected = button_etc?.isSelected != true
+        }
+
+        try {
+            val assetManager : AssetManager = resources.assets
+            val inputStream = assetManager.open("all_courses.json")
+
+            val jsonString = inputStream.bufferedReader().use { it.readText() }
+            val jObject = JSONObject(jsonString)
+            val jArray = jObject.getJSONArray("all_courses")
+
+
+            for (i in 0.. jArray.length() - 1) {
+                val obj = jArray.getJSONObject(i)
+                val tempData = CoursesData(
+                    obj.getString("major"),
+                    obj.getString("name"),
+                    obj.getString("title"),
+                    obj.getString("type"),
+                    obj.getInt("credit"),
+                    obj.getJSONArray("days"),
+                    obj.getString("startTime"),
+                    obj.getString("endTime"),
+                    obj.getString("room"),
+                    obj.getString("instructor"),
+                    obj.getBoolean("hasLab"),
+                    obj.getString("link")
+                )
+                dataList.add(tempData)
+            }
+
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        val mAdapter = CoursesAdapter(this.requireContext(), dataList)
+        val recyclerView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+        recyclerView.adapter = mAdapter
+        mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+            override fun onItemClick(position: Int) {
+
+            }
+        })
+        val lm = LinearLayoutManager(this.requireContext())
+        recyclerView.layoutManager = lm
+        recyclerView.setHasFixedSize(true)
 
         return view
     }

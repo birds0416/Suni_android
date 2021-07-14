@@ -10,13 +10,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize"
         android:orientation="vertical"
-        tools:listitem="@layout/example_recycler"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/phonebooth_list"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
