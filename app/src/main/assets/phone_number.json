@@ -36,9 +36,9 @@
     "number" : "032-626-1357"
   }, {
     "category" : 1,
-    "email" : "younju.baek@sunykorea.ac.kr",
-    "name" : "CS, Youn Ju Baek (Temp.)",
-    "number" : "032-626-1353"
+    "email" : "arie.kim@sunykorea.ac.kr",
+    "name" : "CS, Arie Kim",
+    "number" : "032-626-1354"
   }, {
     "category" : 1,
     "email" : "youjin.kim@sunykorea.ac.kr",
@@ -139,5 +139,5 @@
     "email" : "eunyoung.shin@sunykorea.ac.kr",
     "name" : "Eun Young Shin",
     "number" : "032-626-1193"
-  }]
+  } ]
 }
