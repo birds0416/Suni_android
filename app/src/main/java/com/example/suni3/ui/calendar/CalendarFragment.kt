@@ -23,41 +23,41 @@ class CalendarFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
 
-//        try {
-//            val assetManager : AssetManager = resources.assets
-//            val inputStream = assetManager.open("calendar.json")
-//
-//            val jsonString = inputStream.bufferedReader().use { it.readText() }
-//            val jObject = JSONObject(jsonString)
-//            val jArray = jObject.getJSONArray("calendar events")
-//
-//
-//            for (i in 0.. jArray.length() - 1) {
-//                val obj = jArray.getJSONObject(i)
-//                val tempData = CalendarEvents(
-//                    obj.getBoolean("holiday"),
-//                    obj.getString("date"),
-//                    obj.getString("title"),
-//                    obj.getString("contents")
-//                )
-//
-//                dataList.add(tempData)
-//
-//            }
-//
-//        } catch (e: JSONException) {
-//            e.printStackTrace()
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//        }
-//
-//        val mAdapter = CalendarAdapter(this.requireContext(), dataList)
-//        val recyclerView : RecyclerView = view.findViewById(R.id.calendar_recycler_view)
-//        recyclerView.adapter = mAdapter
-//
-//        val lm = LinearLayoutManager(this.requireContext())
-//        recyclerView.layoutManager = lm
-//        recyclerView.setHasFixedSize(true)
+        try {
+            val assetManager : AssetManager = resources.assets
+            val inputStream = assetManager.open("calendar.json")
+
+            val jsonString = inputStream.bufferedReader().use { it.readText() }
+            val jObject = JSONObject(jsonString)
+            val jArray = jObject.getJSONArray("calendar")
+
+
+            for (i in 0.. jArray.length() - 1) {
+                val obj = jArray.getJSONObject(i)
+                val tempData = CalendarEvents(
+                    obj.getBoolean("holiday"),
+                    obj.getString("date"),
+                    obj.getString("title"),
+                    obj.getString("contents")
+                )
+
+                dataList.add(tempData)
+
+            }
+
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        val mAdapter = CalendarAdapter(this.requireContext(), dataList)
+        val recyclerView : RecyclerView = view.findViewById(R.id.calendar_recycler_view)
+        recyclerView.adapter = mAdapter
+
+        val lm = LinearLayoutManager(this.requireContext())
+        recyclerView.layoutManager = lm.also { it.orientation = LinearLayoutManager.HORIZONTAL }
+        recyclerView.setHasFixedSize(true)
 
         return view
     }

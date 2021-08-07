@@ -1,16 +1,24 @@
 package com.example.suni3.ui.schedule
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.suni3.R
 import org.jetbrains.anko.find
 
 class CoursesAdapter (private val context: Context, private val dataList: ArrayList<CoursesData>) : RecyclerView.Adapter<CoursesAdapter.ItemViewHolder>()  {
+
+    private var datas: ArrayList<CoursesData>? = dataList
 
     interface ItemClickListener {
         fun onItemClick (position: Int)
@@ -51,6 +59,34 @@ class CoursesAdapter (private val context: Context, private val dataList: ArrayL
         return dataList.size
     }
 
+    fun getFilter(): Filter? {
+        return object: Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charString = constraint.toString()
+                datas = if (charString.isEmpty()) {
+                    dataList
+                } else {
+                    val filteredList = ArrayList<CoursesData>()
+                    if (dataList != null) {
+                        for (name in dataList) {
+                            if (name.toString().toLowerCase().contains(charString.toLowerCase())) {
+                                filteredList.add(name)
+                            }
+                        }
+                    }
+                    filteredList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = datas
+                return filterResults
+            }
+            override fun publishResults(constraint: CharSequence, results: FilterResults) {
+                datas  = results.values as ArrayList<CoursesData>
+                notifyDataSetChanged()
+            }
+        }
+    }
+
     fun setItemClickListener(itemClickListener: ItemClickListener) {
         mItemClickListener = itemClickListener
     }
@@ -72,12 +108,17 @@ class CoursesAdapter (private val context: Context, private val dataList: ArrayL
 
         fun bind (data : CoursesData, context: Context) {
 
+            val link = data.link
+
             name.text = data.name
             professor.text = "By " + data.instructor
             class_time.text = data.days[0].toString() + "/" + data.days[data.days.length() - 1].toString() + " " + data.startTime + "-" + data.endTime
 
             class_info.setOnClickListener {
-
+                val clipboard = itemView.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clip : ClipData = ClipData.newPlainText("email_add", link)
+                Toast.makeText(itemView.context, "course link copied to clipboard!", Toast.LENGTH_SHORT).show()
+                clipboard.setPrimaryClip(clip)
             }
         }
 

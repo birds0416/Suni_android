@@ -16,20 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Suni3"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.schedule.CourseInfoActivity"></activity>
         <activity
             android:name=".ui.schedule.AddCourseActivity"
             android:label="Add Course"
-            android:parentActivityName=".MainActivity">
-        </activity>
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:label="@string/app_name">-->
-<!--        </activity>-->
+            android:parentActivityName=".MainActivity"></activity> <!-- <activity -->
+        <!-- android:name=".MainActivity" -->
+        <!-- android:label="@string/app_name"> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
-<!--            android:name=".SplashActivity"-->
-<!--            android:theme="@style/SplashTheme">-->
+
+            <!-- android:name=".SplashActivity" -->
+            <!-- android:theme="@style/SplashTheme"> -->
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

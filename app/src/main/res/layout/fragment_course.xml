@@ -30,10 +30,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
-        android:layout_width="355dp"
+        android:id="@+id/search_bar"
+        android:layout_width="300dp"
         android:layout_height="23dp"
-        android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
@@ -45,8 +44,8 @@
         app:layout_constraintStart_toEndOf="@id/search" />
 
     <TextView
-        android:id="@+id/mon"
-        android:layout_width="43dp"
+        android:id="@+id/mon_course"
+        android:layout_width="46dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="65dp"
@@ -63,10 +62,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tue"
-        android:layout_width="43dp"
+        android:id="@+id/tue_course"
+        android:layout_width="46dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="65dp"
         android:background="@drawable/button_edge"
         android:clickable="true"
@@ -77,14 +76,14 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/mon_course"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/wed"
-        android:layout_width="43dp"
+        android:id="@+id/wed_course"
+        android:layout_width="46dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="65dp"
         android:background="@drawable/button_edge"
         android:clickable="true"
@@ -95,14 +94,14 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tue_course"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/thu"
-        android:layout_width="43dp"
+        android:id="@+id/thu_course"
+        android:layout_width="46dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="65dp"
         android:background="@drawable/button_edge"
         android:clickable="true"
@@ -113,14 +112,14 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/wed_course"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/fri"
-        android:layout_width="43dp"
+        android:id="@+id/fri_course"
+        android:layout_width="46dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="272dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="65dp"
         android:background="@drawable/button_edge"
         android:clickable="true"
@@ -131,7 +130,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/thu_course"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -325,6 +324,21 @@
         app:layout_constraintTop_toBottomOf="@id/view3"
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/courses_list"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/course_cart"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        app:reverseLayout="true"
+        app:layout_constraintStart_toEndOf="@id/cart"
+        app:layout_constraintTop_toBottomOf="@id/view2"
+        app:layout_constraintBottom_toTopOf="@id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/cart_list"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

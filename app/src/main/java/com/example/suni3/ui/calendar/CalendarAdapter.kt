@@ -66,7 +66,7 @@ class CalendarAdapter (private val context: Context, private val dataList : Arra
         private val event_content = itemView.findViewById<TextView>(R.id.event_content)
 
         fun bind(data : CalendarEvents, context: Context) {
-            event_title.text = data.title
+            event_title.text = data.title + " " + data.date
             event_content.text = data.contents
         }
 

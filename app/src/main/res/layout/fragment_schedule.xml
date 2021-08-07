@@ -19,6 +19,7 @@
         android:id="@+id/timetable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="?attr/actionBarSize"
         app:header_highlight_color="@color/purple_200"
         app:start_time="9"
         app:cell_height="45dp"

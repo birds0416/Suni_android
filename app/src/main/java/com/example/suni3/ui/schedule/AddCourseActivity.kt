@@ -3,6 +3,7 @@ package com.example.suni3.ui.schedule
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import com.example.suni3.R
 import com.example.suni3.ui.PagerAdapter.PagerAdapter
 import kotlinx.android.synthetic.main.activity_add_course.*
@@ -14,7 +15,7 @@ class AddCourseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_course)
 
         val adapter = PagerAdapter(supportFragmentManager)
-        adapter.addFragment(CourseFragment(), "Cousre")
+        adapter.addFragment(CourseFragment(), "Course")
         adapter.addFragment(ManualFragment(), "Manual")
         view_pager.adapter = adapter
         tablayout.setupWithViewPager(view_pager)
@@ -39,6 +40,10 @@ class AddCourseActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.itemId
+        if (id == R.id.save) {
+            Toast.makeText(this, "Save button!", Toast.LENGTH_SHORT).show()
+        }
         return super.onOptionsItemSelected(item)
     }
 }

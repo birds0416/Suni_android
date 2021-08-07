@@ -8,6 +8,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.suni3.R
 import kotlinx.android.synthetic.main.fragment_schedule.*
@@ -55,6 +56,7 @@ class ScheduleFragment : Fragment() {
                         fos!!.close()
                         MediaStore.Images.Media.insertImage(activity?.contentResolver, mbitmap,
                                 "Screen", "screen")
+                        Toast.makeText(context, "Schedule captured and saved to gallery!", Toast.LENGTH_SHORT).show()
                     } catch (e: FileNotFoundException) {
                         // TODO Auto-generated catch block
                         e.printStackTrace()

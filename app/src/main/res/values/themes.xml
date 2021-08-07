@@ -26,9 +26,7 @@
         <item name="colorAccent">@color/purple_200</item>
         <item name="titleTextColor">@color/purple_200</item>
         <item name="actionBarStyle">@style/Theme.Suni3.ActionBar</item>
-        <item name="android:popupMenuStyle">@drawable/roundcorner</item>
         <item name="android:actionMenuTextColor">@color/purple_700</item>
-        <item name="actionBarItemBackground">@drawable/roundcorner</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
