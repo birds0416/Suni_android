@@ -105,12 +105,14 @@ class CoursesAdapter (private val context: Context, private val dataList: ArrayL
         private val professor = itemView.findViewById<TextView>(R.id.professor)
         private val class_time = itemView.findViewById<TextView>(R.id.class_time)
         private val class_info = itemView.findViewById<ImageButton>(R.id.class_info)
+        private val class_type = itemView.findViewById<TextView>(R.id.class_type)
 
         fun bind (data : CoursesData, context: Context) {
 
             val link = data.link
 
             name.text = data.name
+            class_type.text = data.type
             professor.text = "By " + data.instructor
             class_time.text = data.days[0].toString() + "/" + data.days[data.days.length() - 1].toString() + " " + data.startTime + "-" + data.endTime
 
