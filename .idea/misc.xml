@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Suni3/app/src/main/res/layout/activity_add_course.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/cart_list.xml" value="0.5541666666666667" />
         <entry key="..\:/Suni3/app/src/main/res/layout/fragment_course.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/fragment_manual.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/fragment_schedule.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/menu/menu_schedule.xml" value="0.5541666666666667" />
       </map>
     </option>
   </component>

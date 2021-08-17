@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':timetableview'
 rootProject.name = "Suni3"

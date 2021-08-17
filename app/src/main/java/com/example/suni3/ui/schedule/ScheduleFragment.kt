@@ -1,16 +1,20 @@
 package com.example.suni3.ui.schedule
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Bundle
 import android.os.Environment
+import android.preference.PreferenceManager
 import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.suni3.R
+import com.github.tlaabs.timetableview.Schedule
+import com.github.tlaabs.timetableview.TimetableView
 import kotlinx.android.synthetic.main.fragment_schedule.*
 import java.io.File
 import java.io.FileNotFoundException
@@ -20,8 +24,12 @@ import java.io.OutputStream
 
 class ScheduleFragment : Fragment() {
 
+    private var timetable: TimetableView? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v: View= inflater.inflate(R.layout.fragment_schedule, container, false)
+        timetable = v.findViewById(R.id.timetable)
+        initView()
         return v
     }
 
@@ -30,6 +38,22 @@ class ScheduleFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
+    }
+
+    private fun initView() {
+        timetable!!.setOnStickerSelectEventListener { idx, schedules ->
+            val intent = Intent(activity, AddCourseActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            REQUEST_ADD -> if (resultCode == AddCourseActivity.RESULT_OK_ADD) {
+                val item = data!!.getSerializableExtra("schedules") as ArrayList<Schedule>
+                timetable!!.add(item)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -72,7 +96,8 @@ class ScheduleFragment : Fragment() {
         if (id == R.id.add_course) {
             // Move to next fragment
             val intent = Intent(activity, AddCourseActivity::class.java)
-            startActivity(intent)
+            intent.putExtra("mode", REQUEST_ADD)
+            startActivityForResult(intent, REQUEST_ADD)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -116,5 +141,28 @@ class ScheduleFragment : Fragment() {
 //            Toast.makeText(this, "Captured View and saved to Gallery" , Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun saveByPreference(data: String) {
+        val mPref = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
+        val editor = mPref.edit()
+        editor.putString("timetable_demo", data)
+        editor.commit()
+        Toast.makeText(this.requireContext(), "saved!", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun loadSavedData() {
+        timetable!!.removeAll()
+        val mPref = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
+        val savedData = mPref.getString("timetable_demo", "")
+        if (savedData == null && savedData == "") return
+        timetable!!.load(savedData)
+        Toast.makeText(this.requireContext(), "loaded!", Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        const val REQUEST_ADD = 1
+        const val REQUEST_EDIT = 2
+    }
+
 }
 

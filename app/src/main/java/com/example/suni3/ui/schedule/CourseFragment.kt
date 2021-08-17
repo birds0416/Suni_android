@@ -91,18 +91,153 @@ class CourseFragment : Fragment() {
         // filtering
         button_mon?.setOnClickListener {
             button_mon?.isSelected = button_mon?.isSelected != true
+            if (button_mon?.isSelected) {
+                filteredList = filter2("MON", jArray)
+                val filterAdapter = CoursesAdapter(this.requireContext(), filteredList)
+                val filterView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                filterView.adapter = filterAdapter
+                filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                filterView.layoutManager = lm
+                filterView.setHasFixedSize(true)
+            } else {
+                dataList = unfilter(jArray)
+                val mAdapter = CoursesAdapter(this.requireContext(), dataList)
+                val recyclerView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                recyclerView.adapter = mAdapter
+                mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                recyclerView.layoutManager = lm
+                recyclerView.setHasFixedSize(true)
+            }
         }
         button_tue?.setOnClickListener {
             button_tue?.isSelected = button_tue?.isSelected != true
+            if (button_tue?.isSelected) {
+                filteredList = filter2("TUE", jArray)
+                val filterAdapter = CoursesAdapter(this.requireContext(), filteredList)
+                val filterView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                filterView.adapter = filterAdapter
+                filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                filterView.layoutManager = lm
+                filterView.setHasFixedSize(true)
+            } else {
+                dataList = unfilter(jArray)
+                val mAdapter = CoursesAdapter(this.requireContext(), dataList)
+                val recyclerView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                recyclerView.adapter = mAdapter
+                mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                recyclerView.layoutManager = lm
+                recyclerView.setHasFixedSize(true)
+            }
         }
         button_wed?.setOnClickListener {
             button_wed?.isSelected = button_wed?.isSelected != true
+            if (button_wed?.isSelected) {
+                filteredList = filter2("WED", jArray)
+                val filterAdapter = CoursesAdapter(this.requireContext(), filteredList)
+                val filterView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                filterView.adapter = filterAdapter
+                filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                filterView.layoutManager = lm
+                filterView.setHasFixedSize(true)
+            } else {
+                dataList = unfilter(jArray)
+                val mAdapter = CoursesAdapter(this.requireContext(), dataList)
+                val recyclerView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                recyclerView.adapter = mAdapter
+                mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                recyclerView.layoutManager = lm
+                recyclerView.setHasFixedSize(true)
+            }
         }
         button_thu?.setOnClickListener {
             button_thu?.isSelected = button_thu?.isSelected != true
+            if (button_thu?.isSelected) {
+                filteredList = filter2("THU", jArray)
+                val filterAdapter = CoursesAdapter(this.requireContext(), filteredList)
+                val filterView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                filterView.adapter = filterAdapter
+                filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                filterView.layoutManager = lm
+                filterView.setHasFixedSize(true)
+            } else {
+                dataList = unfilter(jArray)
+                val mAdapter = CoursesAdapter(this.requireContext(), dataList)
+                val recyclerView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                recyclerView.adapter = mAdapter
+                mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                recyclerView.layoutManager = lm
+                recyclerView.setHasFixedSize(true)
+            }
         }
         button_fri?.setOnClickListener {
             button_fri?.isSelected = button_fri?.isSelected != true
+            if (button_fri?.isSelected) {
+                filteredList = filter2("FRI", jArray)
+                val filterAdapter = CoursesAdapter(this.requireContext(), filteredList)
+                val filterView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                filterView.adapter = filterAdapter
+                filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                filterView.layoutManager = lm
+                filterView.setHasFixedSize(true)
+            } else {
+                dataList = unfilter(jArray)
+                val mAdapter = CoursesAdapter(this.requireContext(), dataList)
+                val recyclerView : RecyclerView = view.findViewById(R.id.my_recycler_view)
+                recyclerView.adapter = mAdapter
+                mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
+                    override fun onItemClick(position: Int) {
+                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+                val lm = LinearLayoutManager(this.requireContext())
+                recyclerView.layoutManager = lm
+                recyclerView.setHasFixedSize(true)
+            }
         }
         button_ams?.setOnClickListener {
             button_ams?.isSelected = button_ams?.isSelected != true
@@ -286,13 +421,13 @@ class CourseFragment : Fragment() {
         }
 
         val mAdapter = CoursesAdapter(this.requireContext(), dataList)
-        val cartAdapter = CartAdapter(this.requireContext(), cartList)
+        var cartAdapter = CartAdapter(this.requireContext(), cartList)
         val cart_recycle : RecyclerView = view.findViewById(R.id.course_cart)
         val recyclerView : RecyclerView = view.findViewById(R.id.my_recycler_view)
         recyclerView.adapter = mAdapter
         mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
             override fun onItemClick(position: Int) {
-                Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                cartList.add(CartItem(dataList[position].name))
             }
         })
 
@@ -337,51 +472,51 @@ class CourseFragment : Fragment() {
         return list
     }
 
-//    fun filter2(category : String , s : String, array : JSONArray): ArrayList<CoursesData> {
-//        var list : ArrayList<CoursesData> = ArrayList()
-//        for (i in 0.. array.length() - 1) {
-//            val currObject : JSONObject = array.getJSONObject(i)
-//            val name = currObject.getJSONArray(category)
-//            val obj1 = name.getJSONObject(0)
-//            val obj2 = name.getJSONObject(1)
-//            if (obj1 != obj2) {
-//                if (obj1.toString() == s) {
-//                    val filteredData = CoursesData(
-//                        currObject.getString("major"),
-//                        currObject.getString("name"),
-//                        currObject.getString("title"),
-//                        currObject.getString("type"),
-//                        currObject.getInt("credit"),
-//                        currObject.getJSONArray("days"),
-//                        currObject.getString("startTime"),
-//                        currObject.getString("endTime"),
-//                        currObject.getString("room"),
-//                        currObject.getString("instructor"),
-//                        currObject.getBoolean("hasLab"),
-//                        currObject.getString("link")
-//                    )
-//                    list.add(filteredData)
-//                } else {
-//                    val filteredData = CoursesData(
-//                        currObject.getString("major"),
-//                        currObject.getString("name"),
-//                        currObject.getString("title"),
-//                        currObject.getString("type"),
-//                        currObject.getInt("credit"),
-//                        currObject.getJSONArray("days"),
-//                        currObject.getString("startTime"),
-//                        currObject.getString("endTime"),
-//                        currObject.getString("room"),
-//                        currObject.getString("instructor"),
-//                        currObject.getBoolean("hasLab"),
-//                        currObject.getString("link")
-//                    )
-//                    list.add(filteredData)
-//                }
-//            }
-//        }
-//        return list
-//    }
+    fun filter2(s : String, array : JSONArray): ArrayList<CoursesData> {
+        var list : ArrayList<CoursesData> = ArrayList()
+        for (i in 0.. array.length() - 1) {
+            val currObject : JSONObject = array.getJSONObject(i)
+            val dayArray = currObject.getJSONArray("days")
+            if (dayArray.length() == 1) {
+                if (dayArray[0].toString() == s) {
+                    val filtereddata = CoursesData (
+                        currObject.getString("major"),
+                        currObject.getString("name"),
+                        currObject.getString("title"),
+                        currObject.getString("type"),
+                        currObject.getInt("credit"),
+                        currObject.getJSONArray("days"),
+                        currObject.getString("startTime"),
+                        currObject.getString("endTime"),
+                        currObject.getString("room"),
+                        currObject.getString("instructor"),
+                        currObject.getBoolean("hasLab"),
+                        currObject.getString("link")
+                    )
+                    list.add(filtereddata)
+                }
+            } else {
+                if (dayArray[0].toString() == s || dayArray[dayArray.length() - 1].toString() == s) {
+                    val filtereddata = CoursesData (
+                        currObject.getString("major"),
+                        currObject.getString("name"),
+                        currObject.getString("title"),
+                        currObject.getString("type"),
+                        currObject.getInt("credit"),
+                        currObject.getJSONArray("days"),
+                        currObject.getString("startTime"),
+                        currObject.getString("endTime"),
+                        currObject.getString("room"),
+                        currObject.getString("instructor"),
+                        currObject.getBoolean("hasLab"),
+                        currObject.getString("link")
+                    )
+                    list.add(filtereddata)
+                }
+            }
+        }
+        return list
+    }
 
     fun unfilter(array : JSONArray): ArrayList<CoursesData> {
         var list : ArrayList<CoursesData> = ArrayList()

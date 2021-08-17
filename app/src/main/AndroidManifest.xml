@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Suni3"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.schedule.CourseInfoActivity"></activity>
         <activity
             android:name=".ui.schedule.AddCourseActivity"
             android:label="Add Course"

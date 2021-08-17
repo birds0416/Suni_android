@@ -2,18 +2,18 @@
 <resources>
     <color name="colorHeader">#fcfcfc</color>
     <color name="colorHeaderText">#7d7d7d</color>
-    <color name="colorTableItem">#D2AEFF</color>
+    <color name="colorTableItem">#efefef</color>
 
     <string-array name="default_sticker_color">
-        <item>#F2B0CF</item>
-        <item>#BAD6F0</item>
-        <item>#D6F0F5</item>
-        <item>#A6D6D6</item>
-        <item>#F2E8CC</item>
-        <item>#C2D6A8</item>
-        <item>#B0ABC9</item>
-        <item>#F0D6BA</item>
-        <item>#AB7373</item>
+        <item>#f08676</item>
+        <item>#ecc369</item>
+        <item>#a7ca70</item>
+        <item>#7dd1c1</item>
+        <item>#7aa5e9</item>
+        <item>#fbaa68</item>
+        <item>#9f86e1</item>
+        <item>#78cb87</item>
+        <item>#d397ed</item>
     </string-array>
 
     <color name="default_side_header_font_color">#7d7d7d</color>

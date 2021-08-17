@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-//import android.support.v7.content.res.AppCompatResources;
 import androidx.appcompat.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -39,7 +38,6 @@ public class TimetableView extends LinearLayout {
     private static final int DEFAULT_HEADER_FONT_SIZE_DP = 15;
     private static final int DEFAULT_HEADER_HIGHLIGHT_FONT_SIZE_DP = 15;
     private static final int DEFAULT_STICKER_FONT_SIZE_DP = 13;
-    private static final boolean DEFAULT_SET_TWENTYFOURHOUR_CLOCK = false;
 
 
     private int rowCount;
@@ -50,7 +48,6 @@ public class TimetableView extends LinearLayout {
     private String[] stickerColors;
     private int startTime;
     private int headerHighlightColor;
-    private boolean setTwentyFourHourClock;
 
     private RelativeLayout stickerBox;
     TableLayout tableHeader;

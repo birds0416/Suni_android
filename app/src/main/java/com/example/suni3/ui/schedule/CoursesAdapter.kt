@@ -114,7 +114,11 @@ class CoursesAdapter (private val context: Context, private val dataList: ArrayL
             name.text = data.name
             class_type.text = data.type
             professor.text = "By " + data.instructor
-            class_time.text = data.days[0].toString() + "/" + data.days[data.days.length() - 1].toString() + " " + data.startTime + "-" + data.endTime
+            if (data.days.length() == 1) {
+                class_time.text = data.days[0].toString() + " " + data.startTime + "-" + data.endTime
+            } else {
+                class_time.text = data.days[0].toString() + "/" + data.days[data.days.length() - 1].toString() + " " + data.startTime + "-" + data.endTime
+            }
 
             class_info.setOnClickListener {
                 val clipboard = itemView.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
