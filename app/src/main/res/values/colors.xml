@@ -9,4 +9,18 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#D3D3D3</color>
 
+    <array name="sticker_colors">
+        <item>#F2B0CF</item>
+        <item>#BAD6F0</item>
+        <item>#D6F0F5</item>
+        <item>#A6D6D6</item>
+        <item>#F2E8CC</item>
+        <item>#C2D6A8</item>
+        <item>#B0ABC9</item>
+        <item>#F0D6BA</item>
+        <item>#AB7373</item>
+        <item>#D1CFC7</item>
+        <item>#FCBAAB</item>
+    </array>
+
 </resources>

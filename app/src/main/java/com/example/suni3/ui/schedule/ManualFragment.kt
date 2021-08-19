@@ -38,6 +38,8 @@ class ManualFragment: Fragment() {
     private var schedule : Schedule? = null
     private var editIdx = 0
 
+//    var addCourseActivity : AddCourseActivity = AddCourseActivity()
+
     fun newInstance(): ManualFragment {
         val args = Bundle()
         val fragment = ManualFragment()
@@ -73,90 +75,84 @@ class ManualFragment: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        val id: Int = item.itemId
-//        if (id == R.id.save) {
-//            if (mode == ScheduleFragment.REQUEST_ADD) {
-//                inputDataProcessing()
-//                val i = Intent()
-//                val schedules = ArrayList<Schedule?>()
-//                schedules.add(schedule)
-//                i.putExtra("schedules", schedules)
-//                activity?.setResult(RESULT_OK_ADD, i)
-//                activity?.finish()
-//            }
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
-
     fun buttons() {
 
         button_mon?.setOnClickListener {
             button_mon?.isSelected = button_mon?.isSelected != true
-            schedule?.day = 0
+            AddCourseActivity().schedule?.day = 0
         }
         button_tue?.setOnClickListener {
             button_tue?.isSelected = button_tue?.isSelected != true
-            schedule?.day = 1
+            AddCourseActivity().schedule?.day = 1
         }
         button_wed?.setOnClickListener {
             button_wed?.isSelected = button_wed?.isSelected != true
-            schedule?.day = 2
+            AddCourseActivity().schedule?.day = 2
         }
         button_thu?.setOnClickListener {
             button_thu?.isSelected = button_thu?.isSelected != true
-            schedule?.day = 3
+            AddCourseActivity().schedule?.day = 3
         }
         button_fri?.setOnClickListener {
             button_fri?.isSelected = button_fri?.isSelected != true
-            schedule?.day = 4
+            AddCourseActivity().schedule?.day = 4
         }
 
         startTime?.setOnClickListener(View.OnClickListener {
+            val listener =
+                TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                    startTime?.setText("$hourOfDay:$minute")
+                    AddCourseActivity().schedule!!.startTime.hour = hourOfDay
+                    AddCourseActivity().schedule!!.startTime.minute = minute
+                }
+
             fun onClick(v : View) {
-
-                val listener =
-                    TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                        startTime?.setText("$hourOfDay:$minute")
-                        schedule!!.startTime.hour = hourOfDay
-                        schedule!!.startTime.minute = minute
-                    }
-
-                val dialog : TimePickerDialog = TimePickerDialog(context, listener, schedule!!.startTime.hour, schedule!!.startTime.minute, false)
+                val dialog : TimePickerDialog = TimePickerDialog(
+                    context,
+                    listener,
+                    AddCourseActivity().schedule!!.startTime.hour,
+                    AddCourseActivity().schedule!!.startTime.minute,
+                    false
+                )
                 dialog.show()
             }
         })
 
         endTime?.setOnClickListener(View.OnClickListener {
+            val listener =
+                TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                    endTime?.setText("$hourOfDay:$minute")
+                    schedule!!.endTime.hour = hourOfDay
+                    schedule!!.endTime.minute = minute
+                }
+
             fun onClick(v : View) {
-
-                val listener =
-                    TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                        endTime?.setText("$hourOfDay:$minute")
-                        schedule!!.endTime.hour = hourOfDay
-                        schedule!!.endTime.minute = minute
-                    }
-
-                val dialog : TimePickerDialog = TimePickerDialog(context, listener, schedule!!.endTime.hour, schedule!!.endTime.minute, false)
+                val dialog : TimePickerDialog = TimePickerDialog(
+                    context,
+                    listener,
+                    AddCourseActivity().schedule!!.endTime.hour,
+                    AddCourseActivity().schedule!!.endTime.minute,
+                    false
+                )
                 dialog.show()
             }
         })
     }
 
-    private fun loadSchduleData() {
+    fun loadSchduleData() {
         val i = Intent()
         editIdx = i.getIntExtra("idx", -1)
         val schedules = i.getSerializableExtra("schedules") as java.util.ArrayList<Schedule>
-        schedule = schedules[0]
-        className!!.setText(schedule!!.classTitle)
-        roomEdit!!.setText(schedule!!.classPlace)
-        professorEdit!!.setText(schedule!!.professorName)
+        AddCourseActivity().schedule = schedules[0]
+        className!!.setText(AddCourseActivity().schedule!!.classTitle)
+        roomEdit!!.setText(AddCourseActivity().schedule!!.classPlace)
+        professorEdit!!.setText(AddCourseActivity().schedule!!.professorName)
     }
 
     fun inputDataProcessing() {
-        schedule?.classTitle = className!!.text.toString()
-        schedule?.classPlace = roomEdit!!.text.toString()
-        schedule?.professorName = professorEdit!!.text.toString()
+        AddCourseActivity().schedule?.classTitle = className?.text.toString()
+        AddCourseActivity().schedule?.classPlace = roomEdit?.text.toString()
+        AddCourseActivity().schedule?.professorName = professorEdit?.text.toString()
     }
 
     companion object {

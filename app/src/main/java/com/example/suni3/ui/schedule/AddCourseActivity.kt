@@ -18,8 +18,8 @@ import kotlinx.android.synthetic.main.activity_add_course.*
 
 class AddCourseActivity : AppCompatActivity() {
 
+    var schedule : Schedule? = null
     private var mode = 0
-    private var schedule : Schedule? = null
     private var context : Context? = null
     private var startTime : EditText? = null
     private var endTime : EditText? = null
@@ -84,66 +84,68 @@ class AddCourseActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        button_mon_manual?.setOnClickListener {
-            button_mon_manual?.isSelected = button_mon_manual?.isSelected != true
-            schedule?.day = 0
-        }
-        button_tue_manual?.setOnClickListener {
-            button_tue_manual?.isSelected = button_tue_manual?.isSelected != true
-            schedule?.day = 1
-        }
-        button_wed_manual?.setOnClickListener {
-            button_wed_manual?.isSelected = button_wed_manual?.isSelected != true
-            schedule?.day = 2
-        }
-        button_thu_manual?.setOnClickListener {
-            button_thu_manual?.isSelected = button_thu_manual?.isSelected != true
-            schedule?.day = 3
-        }
-        button_fri_manual?.setOnClickListener {
-            button_fri_manual?.isSelected = button_fri_manual?.isSelected != true
-            schedule?.day = 4
-        }
+        manualFragment?.buttons()
 
-        startTime?.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v : View) {
-                val dialog = TimePickerDialog(
-                    context,
-                    listener,
-                    schedule!!.startTime.hour,
-                    schedule!!.startTime.minute,
-                    false
-                )
-                dialog.show()
-            }
-
-            val listener =
-                TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                    startTime?.setText("$hourOfDay:$minute")
-                    schedule?.startTime?.hour = hourOfDay
-                    schedule?.startTime?.minute = minute
-                }
-        })
-
-        endTime?.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v : View) {
-                val dialog = TimePickerDialog(
-                    context,
-                    listener,
-                    schedule!!.endTime.hour,
-                    schedule!!.endTime.minute,
-                    false
-                )
-                dialog.show()
-            }
-
-            val listener =
-                TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                    endTime?.setText("$hourOfDay:$minute")
-                    schedule?.endTime?.hour = hourOfDay
-                    schedule?.endTime?.minute = minute
-                }
-        })
+//        button_mon_manual?.setOnClickListener {
+//            button_mon_manual?.isSelected = button_mon_manual?.isSelected != true
+//            schedule?.day = 0
+//        }
+//        button_tue_manual?.setOnClickListener {
+//            button_tue_manual?.isSelected = button_tue_manual?.isSelected != true
+//            schedule?.day = 1
+//        }
+//        button_wed_manual?.setOnClickListener {
+//            button_wed_manual?.isSelected = button_wed_manual?.isSelected != true
+//            schedule?.day = 2
+//        }
+//        button_thu_manual?.setOnClickListener {
+//            button_thu_manual?.isSelected = button_thu_manual?.isSelected != true
+//            schedule?.day = 3
+//        }
+//        button_fri_manual?.setOnClickListener {
+//            button_fri_manual?.isSelected = button_fri_manual?.isSelected != true
+//            schedule?.day = 4
+//        }
+//
+//        startTime?.setOnClickListener(object : View.OnClickListener {
+//            override fun onClick(v : View) {
+//                val dialog = TimePickerDialog(
+//                    context,
+//                    listener,
+//                    schedule!!.startTime.hour,
+//                    schedule!!.startTime.minute,
+//                    false
+//                )
+//                dialog.show()
+//            }
+//
+//            val listener =
+//                TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+//                    startTime?.setText("$hourOfDay:$minute")
+//                    schedule?.startTime?.hour = hourOfDay
+//                    schedule?.startTime?.minute = minute
+//                }
+//        })
+//
+//        endTime?.setOnClickListener(object : View.OnClickListener {
+//            override fun onClick(v : View) {
+//                val dialog = TimePickerDialog(
+//                    context,
+//                    listener,
+//                    schedule!!.endTime.hour,
+//                    schedule!!.endTime.minute,
+//                    false
+//                )
+//                dialog.show()
+//            }
+//
+//            val listener =
+//                TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+//                    endTime?.setText("$hourOfDay:$minute")
+//                    schedule?.endTime?.hour = hourOfDay
+//                    schedule?.endTime?.minute = minute
+//                }
+//        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -161,7 +163,7 @@ class AddCourseActivity : AppCompatActivity() {
         val id: Int = item.itemId
         if (id == R.id.save) {
             if (mode == ScheduleFragment.REQUEST_ADD) {
-                inputDataProcessing()
+                manualFragment?.inputDataProcessing()
                 val i = Intent()
                 val schedules = ArrayList<Schedule?>()
                 schedules.add(schedule)
@@ -174,20 +176,21 @@ class AddCourseActivity : AppCompatActivity() {
     }
 
     private fun loadSchduleData() {
-        val i = Intent()
-        editIdx = i.getIntExtra("idx", -1)
-        val schedules = i.getSerializableExtra("schedules") as java.util.ArrayList<Schedule>
-        schedule = schedules[0]
-        className!!.setText(schedule!!.classTitle)
-        roomEdit!!.setText(schedule!!.classPlace)
-        professorEdit!!.setText(schedule!!.professorName)
+        manualFragment?.loadSchduleData()
+//        val i = Intent()
+//        editIdx = i.getIntExtra("idx", -1)
+//        val schedules = i.getSerializableExtra("schedules") as java.util.ArrayList<Schedule>
+//        schedule = schedules[0]
+//        className!!.setText(schedule!!.classTitle)
+//        roomEdit!!.setText(schedule!!.classPlace)
+//        professorEdit!!.setText(schedule!!.professorName)
     }
 
-    private fun inputDataProcessing() {
-        schedule?.classTitle = className?.text.toString()
-        schedule?.classPlace = roomEdit?.text.toString()
-        schedule?.professorName = professorEdit?.text.toString()
-    }
+//    private fun inputDataProcessing() {
+//        schedule?.classTitle = className?.text.toString()
+//        schedule?.classPlace = roomEdit?.text.toString()
+//        schedule?.professorName = professorEdit?.text.toString()
+//    }
 
     companion object {
         const val RESULT_OK_ADD = 1

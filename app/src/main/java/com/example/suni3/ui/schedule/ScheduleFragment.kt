@@ -30,6 +30,7 @@ class ScheduleFragment : Fragment() {
         val v: View= inflater.inflate(R.layout.fragment_schedule, container, false)
         timetable = v.findViewById(R.id.timetable)
         initView()
+        saveByPreference(timetable!!.createSaveData())
         return v
     }
 
@@ -50,8 +51,8 @@ class ScheduleFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
             REQUEST_ADD -> if (resultCode == AddCourseActivity.RESULT_OK_ADD) {
-                val item = data!!.getSerializableExtra("schedules") as ArrayList<Schedule>
-                timetable!!.add(item)
+                val item = data?.getSerializableExtra("schedules") as ArrayList<Schedule>
+                timetable?.add(item)
             }
         }
     }
