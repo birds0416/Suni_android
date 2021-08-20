@@ -1,21 +1,19 @@
 package com.example.suni3.ui.schedule
 
+import android.content.Intent
 import android.content.res.AssetManager
 import android.os.Build
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.suni3.R
-import com.example.suni3.ui.phonebooth.PhoneAdapter
+import com.github.tlaabs.timetableview.Schedule
+import com.github.tlaabs.timetableview.Time
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -26,6 +24,11 @@ class CourseFragment : Fragment() {
     private var dataList : ArrayList<CoursesData> = ArrayList()
     private var cartList : ArrayList<CartItem> = ArrayList()
     private var filteredList : ArrayList<CoursesData> = ArrayList()
+
+    private var schedule : Schedule? = null
+    private var schedule2: Schedule? = null
+    private var mode = 0
+
     lateinit var searchViewModel : SearchViewModel
     lateinit var searchAdapter: SearchAdapter
 
@@ -60,6 +63,9 @@ class CourseFragment : Fragment() {
         val jsonString = inputStream.bufferedReader().use { it.readText() }
         val jObject = JSONObject(jsonString)
         val jArray = jObject.getJSONArray("all_courses")
+
+        schedule = Schedule()
+        schedule2 = Schedule()
 
         try {
             for (i in 0.. jArray.length() - 1) {
@@ -99,6 +105,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -112,6 +119,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -129,6 +137,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -142,6 +151,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -159,6 +169,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -172,6 +183,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -189,6 +201,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -202,6 +215,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -219,6 +233,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -232,6 +247,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -249,6 +265,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -262,6 +279,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -279,6 +297,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -292,6 +311,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -309,6 +329,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -322,6 +343,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -339,6 +361,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -352,6 +375,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -369,6 +393,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -382,6 +407,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -399,6 +425,7 @@ class CourseFragment : Fragment() {
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -412,6 +439,7 @@ class CourseFragment : Fragment() {
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
                         Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        inputDataProcessing(filteredList[position])
                     }
                 })
                 val lm = LinearLayoutManager(this.requireContext())
@@ -427,7 +455,7 @@ class CourseFragment : Fragment() {
         recyclerView.adapter = mAdapter
         mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
             override fun onItemClick(position: Int) {
-                cartList.add(CartItem(dataList[position].name))
+                inputDataProcessing(dataList[position])
             }
         })
 
@@ -439,11 +467,45 @@ class CourseFragment : Fragment() {
         cart_recycle.layoutManager = cart_lm.also { it.orientation = LinearLayoutManager.HORIZONTAL }
         recyclerView.setHasFixedSize(true)
 
+        checkMode()
+
         return view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_schedule, menu)
+        menu.findItem(R.id.before).setVisible(false)
+        menu.findItem(R.id.add_course).setVisible(false)
+        menu.findItem(R.id.capture).setVisible(false)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun checkMode() {
+        val i = Intent()
+        mode = i.getIntExtra("mode", ScheduleFragment.REQUEST_ADD_COURSE)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.itemId
+        if (id == R.id.save) {
+            if (mode == ScheduleFragment.REQUEST_ADD_COURSE) {
+                val i = Intent()
+                val schedules = ArrayList<Schedule?>()
+                val schedules2 = ArrayList<Schedule?>()
+                schedules.add(schedule)
+                schedules2.add(schedule2)
+                i.putExtra("schedules", schedules)
+                i.putExtra("schedules2", schedules2)
+                activity?.setResult(RESULT_OK_ADD, i)
+                activity?.finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun filter(category : String , s : String, array : JSONArray): ArrayList<CoursesData> {
@@ -539,5 +601,66 @@ class CourseFragment : Fragment() {
             list.add(tempData)
         }
         return list
+    }
+
+    private fun inputDataProcessing(data: CoursesData){
+        val start_hour = data.startTime.split(":")[0].toInt()
+        val start_min = data.startTime.split(":")[1].toInt()
+        val end_hour = data.endTime.split(":")[0].toInt()
+        val end_min = data.endTime.split(":")[1].toInt()
+
+        val dayArray = data.days
+        var dayPos1  = 0
+        var dayPos2 = 0
+
+        if (dayArray[0].toString() == "MON") {
+            dayPos1 = 0
+        } else if (dayArray[0].toString() == "TUE") {
+            dayPos1 = 1
+        } else if (dayArray[0].toString() == "WED") {
+            dayPos1 = 2
+        } else if (dayArray[0].toString() == "THU") {
+            dayPos1 = 3
+        } else if (dayArray[0].toString() == "FRI") {
+            dayPos1 = 4
+        }
+
+        if (dayArray[dayArray.length() - 1].toString() == "MON") {
+            dayPos2 = 0
+        } else if (dayArray[dayArray.length() - 1].toString() == "TUE") {
+            dayPos2 = 1
+        } else if (dayArray[dayArray.length() - 1].toString() == "WED") {
+            dayPos2 = 2
+        } else if (dayArray[dayArray.length() - 1].toString() == "THU") {
+            dayPos2 = 3
+        } else if (dayArray[dayArray.length() - 1].toString() == "FRI") {
+            dayPos2 = 4
+        }
+
+        if (dayArray.length() == 1) {
+            schedule?.startTime = Time(start_hour, start_min)
+            schedule?.endTime = Time(end_hour, end_min)
+            schedule?.day = dayPos1
+            schedule?.classTitle = data.name
+            schedule?.classPlace = data.room
+            schedule?.professorName = data.instructor
+        } else {
+            schedule?.startTime = Time(start_hour, start_min)
+            schedule?.endTime = Time(end_hour, end_min)
+            schedule2?.startTime = Time(start_hour, start_min)
+            schedule2?.endTime = Time(end_hour, end_min)
+            schedule?.day = dayPos1
+            schedule2?.day = dayPos2
+            schedule?.classTitle = data.name
+            schedule?.classPlace = data.room
+            schedule?.professorName = data.instructor
+            schedule2?.classTitle = data.name
+            schedule2?.classPlace = data.room
+            schedule2?.professorName = data.instructor
+        }
+    }
+
+    companion object {
+        const val RESULT_OK_ADD = 2
     }
 }

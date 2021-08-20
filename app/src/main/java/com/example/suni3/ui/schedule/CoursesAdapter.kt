@@ -59,33 +59,33 @@ class CoursesAdapter (private val context: Context, private val dataList: ArrayL
         return dataList.size
     }
 
-    fun getFilter(): Filter? {
-        return object: Filter() {
-            override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val charString = constraint.toString()
-                datas = if (charString.isEmpty()) {
-                    dataList
-                } else {
-                    val filteredList = ArrayList<CoursesData>()
-                    if (dataList != null) {
-                        for (name in dataList) {
-                            if (name.toString().toLowerCase().contains(charString.toLowerCase())) {
-                                filteredList.add(name)
-                            }
-                        }
-                    }
-                    filteredList
-                }
-                val filterResults = FilterResults()
-                filterResults.values = datas
-                return filterResults
-            }
-            override fun publishResults(constraint: CharSequence, results: FilterResults) {
-                datas  = results.values as ArrayList<CoursesData>
-                notifyDataSetChanged()
-            }
-        }
-    }
+//    fun getFilter(): Filter? {
+//        return object: Filter() {
+//            override fun performFiltering(constraint: CharSequence?): FilterResults {
+//                val charString = constraint.toString()
+//                datas = if (charString.isEmpty()) {
+//                    dataList
+//                } else {
+//                    val filteredList = ArrayList<CoursesData>()
+//                    if (dataList != null) {
+//                        for (name in dataList) {
+//                            if (name.toString().toLowerCase().contains(charString.toLowerCase())) {
+//                                filteredList.add(name)
+//                            }
+//                        }
+//                    }
+//                    filteredList
+//                }
+//                val filterResults = FilterResults()
+//                filterResults.values = datas
+//                return filterResults
+//            }
+//            override fun publishResults(constraint: CharSequence, results: FilterResults) {
+//                datas  = results.values as ArrayList<CoursesData>
+//                notifyDataSetChanged()
+//            }
+//        }
+//    }
 
     fun setItemClickListener(itemClickListener: ItemClickListener) {
         mItemClickListener = itemClickListener

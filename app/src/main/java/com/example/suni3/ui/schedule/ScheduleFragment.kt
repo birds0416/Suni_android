@@ -30,7 +30,6 @@ class ScheduleFragment : Fragment() {
         val v: View= inflater.inflate(R.layout.fragment_schedule, container, false)
         timetable = v.findViewById(R.id.timetable)
         initView()
-        saveByPreference(timetable!!.createSaveData())
         return v
     }
 
@@ -50,9 +49,16 @@ class ScheduleFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
-            REQUEST_ADD -> if (resultCode == AddCourseActivity.RESULT_OK_ADD) {
+            REQUEST_ADD_COURSE -> if (resultCode == ManualFragment.RESULT_OK_ADD) {
                 val item = data?.getSerializableExtra("schedules") as ArrayList<Schedule>
                 timetable?.add(item)
+                saveByPreference(timetable!!.createSaveData())
+            } else if (resultCode == CourseFragment.RESULT_OK_ADD) {
+                val item = data?.getSerializableExtra("schedules") as ArrayList<Schedule>
+                val item2 = data?.getSerializableExtra("schedules2") as ArrayList<Schedule>
+                timetable?.add(item)
+                timetable?.add(item2)
+                saveByPreference(timetable!!.createSaveData())
             }
         }
     }
@@ -97,8 +103,8 @@ class ScheduleFragment : Fragment() {
         if (id == R.id.add_course) {
             // Move to next fragment
             val intent = Intent(activity, AddCourseActivity::class.java)
-            intent.putExtra("mode", REQUEST_ADD)
-            startActivityForResult(intent, REQUEST_ADD)
+            intent.putExtra("mode", REQUEST_ADD_COURSE)
+            startActivityForResult(intent, REQUEST_ADD_COURSE)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -146,13 +152,12 @@ class ScheduleFragment : Fragment() {
     private fun saveByPreference(data: String) {
         val mPref = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
         val editor = mPref.edit()
-        editor.putString("timetable_demo", data)
+        editor.putString("timetable", data)
         editor.commit()
         Toast.makeText(this.requireContext(), "saved!", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadSavedData() {
-        timetable!!.removeAll()
         val mPref = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
         val savedData = mPref.getString("timetable_demo", "")
         if (savedData == null && savedData == "") return
@@ -161,8 +166,8 @@ class ScheduleFragment : Fragment() {
     }
 
     companion object {
-        const val REQUEST_ADD = 1
-        const val REQUEST_EDIT = 2
+        const val REQUEST_ADD_COURSE = 1
+        const val REQUEST_ADD_MANUAL = 2
     }
 
 }
