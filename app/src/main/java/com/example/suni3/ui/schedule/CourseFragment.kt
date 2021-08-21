@@ -104,7 +104,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -118,7 +118,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -136,7 +136,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -150,7 +150,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -168,7 +168,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -182,7 +182,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -200,7 +200,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -214,7 +214,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -232,7 +232,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -246,7 +246,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -264,7 +264,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -278,7 +278,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -296,7 +296,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -310,7 +310,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -328,7 +328,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -342,7 +342,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -360,7 +360,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -374,7 +374,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -392,7 +392,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -406,7 +406,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -424,7 +424,7 @@ class CourseFragment : Fragment() {
                 filterView.adapter = filterAdapter
                 filterAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -438,7 +438,7 @@ class CourseFragment : Fragment() {
                 recyclerView.adapter = mAdapter
                 mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
                     override fun onItemClick(position: Int) {
-                        Toast.makeText(context, "touch!!!!!!!!!!!!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                         inputDataProcessing(filteredList[position])
                     }
                 })
@@ -455,6 +455,7 @@ class CourseFragment : Fragment() {
         recyclerView.adapter = mAdapter
         mAdapter.setItemClickListener(object : CoursesAdapter.ItemClickListener {
             override fun onItemClick(position: Int) {
+                Toast.makeText(context, "Course added to cart", Toast.LENGTH_SHORT).show()
                 inputDataProcessing(dataList[position])
             }
         })

@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
 import com.example.suni3.R
 import com.github.tlaabs.timetableview.Schedule
@@ -51,13 +52,13 @@ class ScheduleFragment : Fragment() {
         when (requestCode) {
             REQUEST_ADD_COURSE -> if (resultCode == ManualFragment.RESULT_OK_ADD) {
                 val item = data?.getSerializableExtra("schedules") as ArrayList<Schedule>
-                timetable?.add(item)
+                timetable!!.add(item)
                 saveByPreference(timetable!!.createSaveData())
             } else if (resultCode == CourseFragment.RESULT_OK_ADD) {
                 val item = data?.getSerializableExtra("schedules") as ArrayList<Schedule>
                 val item2 = data?.getSerializableExtra("schedules2") as ArrayList<Schedule>
-                timetable?.add(item)
-                timetable?.add(item2)
+                timetable!!.add(item)
+                timetable!!.add(item2)
                 saveByPreference(timetable!!.createSaveData())
             }
         }
@@ -150,7 +151,7 @@ class ScheduleFragment : Fragment() {
     }
 
     private fun saveByPreference(data: String) {
-        val mPref = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
+        val mPref = requireActivity().getPreferences(0)
         val editor = mPref.edit()
         editor.putString("timetable", data)
         editor.commit()
@@ -158,10 +159,14 @@ class ScheduleFragment : Fragment() {
     }
 
     private fun loadSavedData() {
-        val mPref = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
-        val savedData = mPref.getString("timetable_demo", "")
-        if (savedData == null && savedData == "") return
-        timetable!!.load(savedData)
+        timetable!!.removeAll()
+        val mPref = PreferenceManager.getDefaultSharedPreferences(context)
+        val savedData = mPref.getString("timetable", "")
+        if (savedData == null && savedData == "") {
+            return timetable!!.load(savedData)
+        } else {
+            return timetable!!.load(savedData)
+        }
         Toast.makeText(this.requireContext(), "loaded!", Toast.LENGTH_SHORT).show()
     }
 

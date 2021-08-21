@@ -8,20 +8,30 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#D3D3D3</color>
+    <color name="sticker1">#F2B0CF</color>
+    <color name="sticker2">#BAD6F0</color>
+    <color name="sticker3">#D6F0F5</color>
+    <color name="sticker4">#A6D6D6</color>
+    <color name="sticker5">#F2E8CC</color>
+    <color name="sticker6">#C2D6A8</color>
+    <color name="sticker7">#B0ABC9</color>
+    <color name="sticker8">#F0D6BA</color>
+    <color name="sticker9">#AB7373</color>
+    <color name="sticker10">#D1CFC7</color>
+    <color name="sticker11">#FCBAAB</color>
 
-
-    <array name="sticker_colors">
-        <item>#F2B0CF</item>
-        <item>#BAD6F0</item>
-        <item>#D6F0F5</item>
-        <item>#A6D6D6</item>
-        <item>#F2E8CC</item>
-        <item>#C2D6A8</item>
-        <item>#B0ABC9</item>
-        <item>#F0D6BA</item>
-        <item>#AB7373</item>
-        <item>#D1CFC7</item>
-        <item>#FCBAAB</item>
-    </array>
+    <string-array name="sticker_color">
+        <item>@color/sticker1</item>
+        <item>@color/sticker2</item>
+        <item>@color/sticker3</item>
+        <item>@color/sticker4</item>
+        <item>@color/sticker5</item>
+        <item>@color/sticker6</item>
+        <item>@color/sticker7</item>
+        <item>@color/sticker8</item>
+        <item>@color/sticker9</item>
+        <item>@color/sticker10</item>
+        <item>@color/sticker11</item>
+    </string-array>
 
 </resources>
