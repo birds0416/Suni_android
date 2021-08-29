@@ -3,13 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Suni3/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.5703125" />
+        <entry key="..\:/Suni3/app/src/main/res/drawable/ic_phonebooth.xml" value="0.5703125" />
         <entry key="..\:/Suni3/app/src/main/res/layout/activity_add_course.xml" value="0.5541666666666667" />
         <entry key="..\:/Suni3/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/activity_popup.xml" value="0.5401041666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/alert_dialog.xml" value="0.33229166666666665" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/alert_popup.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/calendar_events.xml" value="0.3703125" />
         <entry key="..\:/Suni3/app/src/main/res/layout/cart_list.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/courses_list.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/fragment_calendar.xml" value="0.5541666666666667" />
         <entry key="..\:/Suni3/app/src/main/res/layout/fragment_course.xml" value="0.5541666666666667" />
         <entry key="..\:/Suni3/app/src/main/res/layout/fragment_manual.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/fragment_phonebooth.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/fragment_popup.xml" value="0.5" />
         <entry key="..\:/Suni3/app/src/main/res/layout/fragment_schedule.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/layout/search_bar.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/menu/bottom_nav_menu.xml" value="0.5541666666666667" />
         <entry key="..\:/Suni3/app/src/main/res/menu/menu_schedule.xml" value="0.5541666666666667" />
+        <entry key="..\:/Suni3/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.5703125" />
+        <entry key="..\:/Suni3/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.38645833333333335" />
       </map>
     </option>
   </component>

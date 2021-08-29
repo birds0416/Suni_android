@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">순이</string>
+    <string name="title_schedule">내 스케줄</string>
+    <string name="title_calendar">학사 일정</string>
+    <string name="title_phonebooth">연락처</string>
+    <string name="title_add_course">수업 추가</string>
+    <string name="tab_course">수업 추가</string>
+    <string name="tab_course_major">전공</string>
+    <string name="tab_course_day">요일</string>
+    <string name="tab_course_cart">찜 목록</string>
+    <string name="tab_manual">직접 추가</string>
+    <string name="btn_save">저장</string>
+    <string name="tab_manual_room">장소(선택)</string>
+    <string name="tab_manual_inst">교수명(선택)</string>
+    <string name="tab_manual_name">수업 이름(필수)</string>
+    <string name="btn_delete">삭제</string>
+    <string name="course_link_copy">수업 링크가 클립보드에 복사됨</string>
+</resources>

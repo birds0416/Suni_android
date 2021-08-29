@@ -52,7 +52,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginTop="15dp"
         android:backgroundTint="@android:color/transparent"
-        app:srcCompat="@drawable/ic_action_name"
+        app:srcCompat="@drawable/btn_info"
         tools:layout_editor_absoluteX="362dp"
         tools:layout_editor_absoluteY="16dp"
         app:layout_constraintTop_toTopOf="parent"

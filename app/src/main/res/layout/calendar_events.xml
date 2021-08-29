@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="28dp"
-        app:srcCompat="@drawable/ic_action_name"
+        app:srcCompat="@drawable/btn_info"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/event_title"

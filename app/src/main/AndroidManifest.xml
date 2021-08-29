@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.suni3">
+    package="com.birds.suni3">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
@@ -18,14 +18,18 @@
         android:theme="@style/Theme.Suni3"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.schedule.PopupActivity"
+            android:theme="@style/NoActionBar"
+            android:exported="true" />
+        <activity
             android:name=".ui.schedule.AddCourseActivity"
-            android:label="Add Course"
-            android:parentActivityName=".MainActivity"></activity> <!-- <activity -->
+            android:label="@string/title_add_course"
+            android:parentActivityName="com.birds.suni3.MainActivity" /> <!-- <activity -->
         <!-- android:name=".MainActivity" -->
         <!-- android:label="@string/app_name"> -->
         <!-- </activity> -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.birds.suni3.MainActivity"
             android:label="@string/app_name">
 
             <!-- android:name=".SplashActivity" -->

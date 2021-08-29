@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context="com.birds.suni3.MainActivity">
 
     <item android:id="@+id/before"
         android:title="Before"
@@ -15,11 +15,12 @@
         app:showAsAction="always"/>
 
     <item android:id="@+id/add_course"
-        android:title="Add Course"
+        android:title="@string/title_add_course"
         android:icon="@drawable/btn_schedule"
         app:showAsAction="always"/>
 
     <item android:id="@+id/save"
-        android:title="Save"
+        android:title="@string/btn_save"
         app:showAsAction="always"/>
+
 </menu>

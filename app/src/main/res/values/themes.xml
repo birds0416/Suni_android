@@ -37,6 +37,11 @@
         <item name="elevation">0dp</item>
     </style>
 
+    <style name="NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="Widget.BottomNavigationView"
         parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/fontstyle</item>

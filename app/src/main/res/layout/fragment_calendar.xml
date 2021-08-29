@@ -36,14 +36,4 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/calendar_events"/>
 
-
-<!--    <com.prolificinteractive.materialcalendarview.MaterialCalendarView-->
-<!--        android:id="@+id/calendar_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:mcv_selectionColor="@color/purple_200"-->
-<!--        app:mcv_calendarMode="month"-->
-<!--        app:mcv_weekDayTextAppearance="@font/fontstyle"-->
-<!--        app:mcv_monthLabels="@font/fontstyle" />-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
