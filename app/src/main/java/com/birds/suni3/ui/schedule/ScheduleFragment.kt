@@ -4,14 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.media.MediaScannerConnection
+import android.media.MediaScannerConnection.MediaScannerConnectionClient
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.preference.PreferenceManager
 import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.widget.Toast
-import androidx.core.view.isEmpty
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.birds.suni3.R
 import com.github.tlaabs.timetableview.Schedule
@@ -21,6 +23,7 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.OutputStream
+import java.lang.Exception
 
 
 class ScheduleFragment : Fragment() {
@@ -59,10 +62,10 @@ class ScheduleFragment : Fragment() {
             } else if (resultCode == CourseFragment.RESULT_OK_ADD) {
                 val item = data?.getSerializableExtra("schedules") as ArrayList<Schedule>
                 val item2 = data?.getSerializableExtra("schedules2") as ArrayList<Schedule>
-//                val item3 = data?.getSerializableExtra("schedules3") as ArrayList<Schedule>
+                val item3 = data?.getSerializableExtra("schedules3") as ArrayList<Schedule>
                 timetable!!.add(item)
                 timetable!!.add(item2)
-//                timetable!!.add(item3)
+                timetable!!.add(item3)
                 saveByPreference(timetable!!.createSaveData())
             } else if (resultCode == PopupActivity.RESULT_OK_DELETE) {
                 val idx = data?.getIntExtra("del_idx", -1)
@@ -83,31 +86,30 @@ class ScheduleFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id: Int = item.itemId
         if (id == R.id.capture) {
-            val mbitmap = getScreenShotFromView(my_schedule.rootView)
+            val myBitmap = getScreenShotFromView(my_schedule.rootView)
             try {
-                if (mbitmap != null) {
-                    //storeScreenShot(myBitmap, "test2.jpg", this@TelecollecteActivity)
-                    val extr = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                    val myPath = File(extr, "capture.jpg")
+                if (myBitmap != null) {
+//                    val extr = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+                    val myPath = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), "capture")
+                    if (!myPath.exists()) {
+                        myPath.mkdir()
+                    }
                     var fos: FileOutputStream? = null
                     try {
                         fos = FileOutputStream(myPath)
-                        mbitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+                        myBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
                         fos!!.flush()
                         fos!!.close()
-                        MediaStore.Images.Media.insertImage(activity?.contentResolver, mbitmap,
-                                "Screen", "screen")
-                        Toast.makeText(context, "Schedule captured and saved to gallery!", Toast.LENGTH_SHORT).show()
+                        MediaStore.Images.Media.insertImage(activity?.contentResolver, myBitmap, "Screen", "screen")
+                        Toast.makeText(context, "Schedule captured and saved to gallery", Toast.LENGTH_SHORT).show()
                     } catch (e: FileNotFoundException) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace()
                     } catch (e: Exception) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace()
                     }
                 }
             } catch (e: java.lang.Exception) {
-                Log.e("BLABLA", "Error ::" + e.message)
+                Log.e("error", "::::ERROR::::" + e.message)
             }
         }
         if (id == R.id.add_course) {
@@ -119,24 +121,25 @@ class ScheduleFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun getScreenShotFromView(v: View): Bitmap? {
+    private fun getScreenShotFromView(v: View) : Bitmap? {
         // create a bitmap object
-        var screenshot: Bitmap? = null
+        var screenShot : Bitmap? = null
         try {
             // inflate screenshot object
             // with Bitmap.createBitmap it
             // requires three parameters
             // width and height of the view and
             // the background color
-            screenshot = Bitmap.createBitmap(v.measuredWidth, v.measuredHeight, Bitmap.Config.ARGB_8888)
-            // Now draw this bitmap on a canvas
-            val canvas = Canvas(screenshot)
-            v.draw(canvas)
+            if (v != null) {
+                screenShot = Bitmap.createBitmap(v.measuredWidth, v.measuredHeight, Bitmap.Config.ARGB_8888)
+                // Now draw this bitmap on a canvas
+                val canvas = Canvas(screenShot)
+                v.draw(canvas)
+            }
         } catch (e: Exception) {
-            Log.e("GFG", "Failed to capture screenshot because:" + e.message)
+            Log.e("error", "::::ERROR::::" + e.message)
         }
-        // return the bitmap
-        return screenshot
+        return screenShot
     }
 
     // this method saves the image to gallery
@@ -147,7 +150,7 @@ class ScheduleFragment : Fragment() {
         // Output stream
         var fos: OutputStream? = null
 
-        val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+        val imagesDir = Environment.getExternalStorageDirectory().absolutePath + "/Pictures/"
         val image = File(imagesDir, filename)
         fos = FileOutputStream(image)
 
@@ -182,6 +185,5 @@ class ScheduleFragment : Fragment() {
         const val REQUEST_ADD_MANUAL = 2
         const val REQUEST_DELETE = 3
     }
-
 }
 

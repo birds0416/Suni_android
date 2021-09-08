@@ -15,12 +15,15 @@ import com.github.tlaabs.timetableview.Schedule
 import com.github.tlaabs.timetableview.Time
 import org.jetbrains.anko.find
 import org.w3c.dom.Text
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ManualFragment: Fragment() {
 
     private var mode = 0
-    private var startTime : EditText? = null
-    private var endTime : EditText? = null
+    private var startTime : Button? = null
+    private var endTime : Button? = null
     private var professorEdit: EditText? = null
     private var roomEdit : EditText? = null
     private var className : EditText? = null
@@ -29,6 +32,11 @@ class ManualFragment: Fragment() {
     private var button_wed : TextView? = null
     private var button_thu : TextView? = null
     private var button_fri : TextView? = null
+
+    private var start_hour = 0
+    private var start_min = 0
+    private var end_hour = 0
+    private var end_min = 0
 
     private var schedule : Schedule? = null
     private var delIdx = 0
@@ -125,6 +133,34 @@ class ManualFragment: Fragment() {
             button_fri?.isSelected = button_fri?.isSelected != true
             schedule?.day = 4
         }
+
+        startTime?.setOnClickListener {
+            val cal = Calendar.getInstance()
+
+            val timeSetListener = OnTimeSetListener { timePicker, hour, minute ->
+                cal.set(Calendar.HOUR_OF_DAY, hour)
+                cal.set(Calendar.MINUTE, minute)
+                startTime?.text = SimpleDateFormat("HH:mm").format(cal.time)
+
+                start_hour = hour
+                start_min = minute
+            }
+            TimePickerDialog(context, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+        }
+
+        endTime?.setOnClickListener {
+            val cal = Calendar.getInstance()
+
+            val timeSetListener = OnTimeSetListener { timePicker, hour, minute ->
+                cal.set(Calendar.HOUR_OF_DAY, hour)
+                cal.set(Calendar.MINUTE, minute)
+                endTime?.text = SimpleDateFormat("HH:mm").format(cal.time)
+
+                end_hour = hour
+                end_min = minute
+            }
+            TimePickerDialog(context, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+        }
     }
 
     private fun loadSchduleData() {
@@ -138,24 +174,6 @@ class ManualFragment: Fragment() {
     }
 
     private fun inputDataProcessing() {
-        var start_hour = 0
-        var start_min = 0
-        var end_hour = 0
-        var end_min = 0
-
-        if (startTime?.text.toString() == "" &&
-            endTime?.text.toString() == "") {
-            start_hour = 9
-            start_min = 0
-            end_hour = 10
-            end_min = 0
-        } else {
-            start_hour = startTime?.text.toString().split(":")[0].toInt()
-            start_min = startTime?.text.toString().split(":")[1].toInt()
-            end_hour = endTime?.text.toString().split(":")[0].toInt()
-            end_min = endTime?.text.toString().split(":")[1].toInt()
-        }
-
         schedule?.startTime = Time(start_hour, start_min)
         schedule?.endTime = Time(end_hour, end_min)
 
@@ -165,13 +183,13 @@ class ManualFragment: Fragment() {
 
     }
 
-    private fun saveByPreference(data: String) {
-        val mPref = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
-        val editor = mPref.edit()
-        editor.putString("timetable_demo", data)
-        editor.commit()
-        Toast.makeText(this.requireContext(), "saved!", Toast.LENGTH_SHORT).show()
-    }
+//    private fun saveByPreference(data: String) {
+//        val mPref = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
+//        val editor = mPref.edit()
+//        editor.putString("timetable_demo", data)
+//        editor.commit()
+//        Toast.makeText(this.requireContext(), "saved!", Toast.LENGTH_SHORT).show()
+//    }
 
     companion object {
         const val RESULT_OK_ADD = 1

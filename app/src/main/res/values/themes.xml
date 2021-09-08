@@ -27,6 +27,7 @@
         <item name="titleTextColor">@color/purple_200</item>
         <item name="actionBarStyle">@style/Theme.Suni3.ActionBar</item>
         <item name="android:actionMenuTextColor">@color/purple_700</item>
+        <item name="android:timePickerStyle">@style/MyTimePickerTheme</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
@@ -51,6 +52,10 @@
         <item name="android:fontFamily">@font/fontstyle</item>
         <item name="android:textSize">17dp</item>
         <item name="android:textColor">@color/purple_700</item>
+    </style>
+
+    <style name="MyTimePickerTheme" parent="android:Widget.Material.Light.TimePicker">
+        <item name="android:timePickerMode">spinner</item>
     </style>
 
 <!--    <style name="Theme.Suni3" parent="Theme.AppCompat.Light">-->

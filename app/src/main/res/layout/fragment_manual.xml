@@ -111,31 +111,29 @@
         app:layout_constraintStart_toEndOf="@id/thu_manual"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <Button
         android:id="@+id/start_time"
         android:layout_width="160dp"
         android:layout_height="21dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
+        android:text="09:00"
+        android:textColor="@color/gray"
+        android:timePickerMode="spinner"
         android:background="@drawable/button_edge"
-        android:hint="09:00"
-        android:textSize="15sp"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mon_manual" />
 
-    <EditText
+    <Button
         android:id="@+id/end_time"
         android:layout_width="160dp"
         android:layout_height="21dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
+        android:text="10:00"
+        android:textColor="@color/gray"
+        android:timePickerMode="spinner"
         android:background="@drawable/button_edge"
-        android:hint="10:00"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:textColor="@color/purple_700"
         app:layout_constraintStart_toEndOf="@id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thu_manual" />

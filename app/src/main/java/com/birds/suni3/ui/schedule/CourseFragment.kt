@@ -67,6 +67,7 @@ class CourseFragment : Fragment() {
 
         schedule = Schedule()
         schedule2 = Schedule()
+        scheduleLab = Schedule()
 
         try {
             for (i in 0.. jArray.length() - 1) {
@@ -668,51 +669,51 @@ class CourseFragment : Fragment() {
             schedule2?.classPlace = data.room
             schedule2?.professorName = data.instructor
 
-//            if (data.hasLab == true) {
-//                for (i in 0.. array.length() - 1) {
-//                    var currObject : JSONObject = array.getJSONObject(i)
-//                    if (currObject.getString("name") == data.name && currObject.getString("type") == "REC" || currObject.getString("type") == "LAB") {
-//                        val tempData = CoursesData(
-//                            currObject.getString("major"),
-//                            currObject.getString("name"),
-//                            currObject.getString("title"),
-//                            currObject.getString("type"),
-//                            currObject.getInt("credit"),
-//                            currObject.getJSONArray("days"),
-//                            currObject.getString("startTime"),
-//                            currObject.getString("endTime"),
-//                            currObject.getString("room"),
-//                            currObject.getString("instructor"),
-//                            currObject.getBoolean("hasLab"),
-//                            currObject.getString("link")
-//                        )
-//                        val start_hour = tempData.startTime.split(":")[0].toInt()
-//                        val start_min = tempData.startTime.split(":")[1].toInt()
-//                        val end_hour = tempData.endTime.split(":")[0].toInt()
-//                        val end_min = tempData.endTime.split(":")[1].toInt()
-//
-//                        val dayArray = tempData.days
-//                        var dayPos  = 0
-//                        if (dayArray[0].toString() == "MON") {
-//                            dayPos = 0
-//                        } else if (dayArray[0].toString() == "TUE") {
-//                            dayPos = 1
-//                        } else if (dayArray[0].toString() == "WED") {
-//                            dayPos = 2
-//                        } else if (dayArray[0].toString() == "THU") {
-//                            dayPos = 3
-//                        } else if (dayArray[0].toString() == "FRI") {
-//                            dayPos = 4
-//                        }
-//                        scheduleLab?.startTime = Time(start_hour, start_min)
-//                        scheduleLab?.endTime = Time(end_hour, end_min)
-//                        scheduleLab?.day = dayPos
-//                        scheduleLab?.classTitle = tempData.name
-//                        scheduleLab?.classPlace = tempData.room
-//                        scheduleLab?.professorName = tempData.instructor
-//                    }
-//                }
-//            }
+            if (data.hasLab == true) {
+                for (i in 0.. array.length() - 1) {
+                    val currObject : JSONObject = array.getJSONObject(i)
+                    if (data.name == currObject.getString("name") && currObject.getString("type") == "REC" || currObject.getString("type") == "LAB") {
+                        val tempData = CoursesData(
+                            currObject.getString("major"),
+                            currObject.getString("name"),
+                            currObject.getString("title"),
+                            currObject.getString("type"),
+                            currObject.getInt("credit"),
+                            currObject.getJSONArray("days"),
+                            currObject.getString("startTime"),
+                            currObject.getString("endTime"),
+                            currObject.getString("room"),
+                            currObject.getString("instructor"),
+                            currObject.getBoolean("hasLab"),
+                            currObject.getString("link")
+                        )
+                        val start_hour = tempData.startTime.split(":")[0].toInt()
+                        val start_min = tempData.startTime.split(":")[1].toInt()
+                        val end_hour = tempData.endTime.split(":")[0].toInt()
+                        val end_min = tempData.endTime.split(":")[1].toInt()
+
+                        val dayArray = tempData.days
+                        var dayPos  = 0
+                        if (dayArray[0].toString() == "MON") {
+                            dayPos = 0
+                        } else if (dayArray[0].toString() == "TUE") {
+                            dayPos = 1
+                        } else if (dayArray[0].toString() == "WED") {
+                            dayPos = 2
+                        } else if (dayArray[0].toString() == "THU") {
+                            dayPos = 3
+                        } else if (dayArray[0].toString() == "FRI") {
+                            dayPos = 4
+                        }
+                        scheduleLab?.startTime = Time(start_hour, start_min)
+                        scheduleLab?.endTime = Time(end_hour, end_min)
+                        scheduleLab?.day = dayPos
+                        scheduleLab?.classTitle = tempData.name
+                        scheduleLab?.classPlace = tempData.room
+                        scheduleLab?.professorName = tempData.instructor
+                    }
+                }
+            }
         }
     }
 
