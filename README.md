@@ -16,5 +16,6 @@ Hasung Jun
 Ahyoung Oh
 
 ### Any Bugs or Feedback
-Please contact iianjun@naver.com OR hasung.jun@stonybrook.edu
+Please contact iianjun@naver.com OR hasung.jun@stonybrook.edu for ios
+Please contact birds8277@gmail.com for Android
 
