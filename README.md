@@ -10,8 +10,8 @@
 Currently planning to implement AI Chatbot (순이) to help students by training with most common questions from students
 
 ### Developer Infomation
-Hasung Jun - Android
-Hojung Lim - iOS
+Hasung Jun - iOS
+Hojung Lim - Android
 
 ### Designer Information
 Ahyoung Oh
